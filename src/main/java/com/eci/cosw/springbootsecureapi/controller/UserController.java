@@ -5,17 +5,13 @@ import com.eci.cosw.springbootsecureapi.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import java.util.Date;
+import java.util.List;
 
 /**
- * @author Santiago Carrillo
- * 8/21/17.
  */
 @RestController
 @RequestMapping( "user" )
@@ -24,6 +20,14 @@ public class UserController
 
     @Autowired
     private UserService userService;
+
+    @CrossOrigin
+    @RequestMapping( value = "/getAll", method = RequestMethod.GET )
+    public List<User> getUsers() {
+        System.out.println("Llego al controller");
+        return userService.getUsers();
+    }
+
 
     @RequestMapping( value = "/login", method = RequestMethod.POST )
     public Token login( @RequestBody User login )
@@ -40,7 +44,7 @@ public class UserController
         String username = login.getUsername();
         String password = login.getPassword();
 
-        User user = userService.getUser( 0l );
+        User user = userService.getUser( username );
 
         if ( user == null )
         {

@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".navbar {\n    background-color: white;\n    border-color: #E7E7E7;\n}\n", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\n\n  <div class=\"navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/home\" routerLink=\"/home\">Inicio</a>\n      </li>\n    </ul>\n  </div>\n  <div class=\"mx-auto order-0\">\n    <a class=\"navbar-brand mx-auto\" routerLinkActive=\"/home\" routerLink=\"/home\" >(Aqui va el Logo)</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".dual-collapse2\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n  </div>\n  <div class=\"navbar-collapse collapse w-100 order-3 dual-collapse2\">\n    <ul class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a routerLinkActive=\"/home\" routerLink=\"/home\" class=\"nav-link\" (click)=\"signOut()\">Ingresar</a>\n      </li>\n\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/home\" routerLink=\"/home\" class=\"nav-link\" (click)=\"signOut()\">Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n\n\n\n"
+module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n\n  <div class=\"navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2\">\n    <ul class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"/home\" routerLink=\"/home\">Inicio</a>\n      </li>\n    </ul>\n  </div>\n  <div class=\"mx-auto order-0\">\n    <a class=\"navbar-brand mx-auto\" routerLinkActive=\"/home\" routerLink=\"/home\" ><img src=\"/assets/brand/logo.png\" width=\"70\" height=\"70\"></a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".dual-collapse2\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n  </div>\n  <div class=\"navbar-collapse collapse w-100 order-3 dual-collapse2\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a routerLinkActive=\"/signin\" routerLink=\"/signin\" class=\"nav-link\" >Ingresar</a>\n      </li>\n\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/home\" routerLink=\"/home\" class=\"nav-link\" (click)=\"signOut()\">Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n\n<footer>\n  <hr>\n  <div class=\"text-center center-block\">\n    <p class=\"txt-railway\">- App de Sitios -</p>\n </div>\n  <hr>\n</footer>\n\n\n\n"
 
 /***/ }),
 
@@ -65,7 +65,7 @@ var AppComponent = (function () {
         this.router = router;
         this.title = 'app';
         if (!this.authService.isLoggedIn()) {
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
         }
     }
     AppComponent.prototype.isLoggedIn = function () {
@@ -170,7 +170,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__common_api_service__["a" /* APIService */],
             __WEBPACK_IMPORTED_MODULE_12__common_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_13__common_app_data_service__["a" /* AppDataService */],
-            __WEBPACK_IMPORTED_MODULE_15__services_users_service__["a" /* UsersService */]
+            __WEBPACK_IMPORTED_MODULE_15__services_users_service__["a" /* UsersService */],
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
@@ -451,7 +451,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".container{\n    position: relative;\n    width: 1200px;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    background-color: transparent;\n  }\n\n.btn{\n    background: white;\n    border: 2px solid black; /* Green */\n    width: 250px;\n    height: 250px;\n\n}\n\n.btn {\n        background: white;\n        width: 250px;\n        height: 320px;\n    color: white;\n    padding: 16px 32px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    margin: 4px 2px; /* Safari */\n    transition-duration: 0.4s;\n    cursor: pointer;\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);\n        background-color: white;\n        color: black;\n        border: 2px solid #4CAF50;\n}\n\n\n\n\n.btn:hover {\n    background-color: #4CAF50;\n    color: white;\n}", ""]);
 
 // exports
 
@@ -464,7 +464,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  Welcome to COSW angular seed\n</p>"
+module.exports = "<div class=\"container\">\n  <br>\n  <div class=\"row\">\n\n    <div *ngFor=\"let ul of userslist\" class=\"col-xs-6 col-md-3\">\n      <br>\n      <a (click)=\"saveSite(ul.username)\" routerLinkActive=\"/siteProfile\" routerLink=\"/siteProfile\"  class=\"btn btn1\" role=\"button\" aria-pressed=\"true\">\n        <img src=\"{{ul.logo}}\" width=\"190\" height=\"190\"><HR><p>{{ul.companyName}}</p><p>{{ul.companyAddres}}</p></a>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -474,6 +474,7 @@ module.exports = "<p>\n  Welcome to COSW angular seed\n</p>"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -484,10 +485,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomePageComponent = (function () {
-    function HomePageComponent() {
+    function HomePageComponent(usersService) {
+        this.usersService = usersService;
+        this.userslist = [];
     }
     HomePageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log("llego a onInit");
+        this.usersService.getSites().subscribe(function (usersResponse) {
+            _this.userslist = usersResponse;
+        });
+    };
+    HomePageComponent.prototype.saveSite = function (name) {
+        sessionStorage.setItem("siteName", name);
     };
     return HomePageComponent;
 }());
@@ -497,9 +509,10 @@ HomePageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/home-page/home-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/home-page/home-page.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]) === "function" && _a || Object])
 ], HomePageComponent);
 
+var _a;
 //# sourceMappingURL=home-page.component.js.map
 
 /***/ }),
@@ -671,6 +684,7 @@ var UsersService = (function (_super) {
         _this.config = config;
         _this.authService = authService;
         _this.http = http;
+        _this.resourceUrl = 'user/';
         return _this;
     }
     UsersService.prototype.login = function (username, password) {
@@ -680,6 +694,10 @@ var UsersService = (function (_super) {
                 _this.authService.accessToken = loginResponse.accessToken;
             }
         });
+    };
+    UsersService.prototype.getSites = function () {
+        console.log("llego a getSites");
+        return this.get(this.resourceUrl + "getAll");
     };
     return UsersService;
 }(__WEBPACK_IMPORTED_MODULE_2__common_api_service__["a" /* APIService */]));

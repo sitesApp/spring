@@ -4,10 +4,8 @@ package com.eci.cosw.springbootsecureapi.model;
  * @author Santiago Carrillo
  * 8/21/17.
  */
-public class User
-{
+public class User {
 
-    private long id;
 
     private String email;
 
@@ -19,85 +17,99 @@ public class User
 
     private String username;
 
+    private String logo;
 
-    public User()
-    {
+    private String companyName;
+
+    private String companyAddres;
+
+
+    public User() {
     }
 
-    public User( String username, String email, String password, String firstname, String lastname )
-    {
+    public User(String username, String email, String password, String firstname, String lastname, String logo, String companyName, String companyAddres) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.logo = logo;
+        this.companyName = companyName;
+        this.companyAddres = companyAddres;
     }
 
-
-    public long getId()
-    {
-        return id;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setId( long id )
-    {
-        this.id = id;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
-    public String getEmail()
-    {
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyAddres() {
+        return companyAddres;
+    }
+
+    public void setCompanyAddres(String companyAddres) {
+        this.companyAddres = companyAddres;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail( String email )
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword( String password )
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getFirstname()
-    {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstname( String firstname )
-    {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public String getLastname()
-    {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setLastname( String lastname )
-    {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername( String username )
-    {
+    public void setUsername(String username) {
         this.username = username;
     }
 
     @Override
-    public String toString()
-    {
-        return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", firstname='"
-            + firstname + '\'' + '}';
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }
