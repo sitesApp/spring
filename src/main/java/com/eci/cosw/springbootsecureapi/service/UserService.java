@@ -14,6 +14,8 @@ public interface UserService
 
     User getUser( String username );
 
+    List<User> getUserByCategory (String category);
+
     User createUser( User user );
 
     User findUserByEmail( String email );

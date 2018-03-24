@@ -1,8 +1,6 @@
 package com.eci.cosw.springbootsecureapi.model;
 
 /**
- * @author Santiago Carrillo
- * 8/21/17.
  */
 public class User {
 
@@ -23,11 +21,13 @@ public class User {
 
     private String companyAddres;
 
+    private String category;
+
 
     public User() {
     }
 
-    public User(String username, String email, String password, String firstname, String lastname, String logo, String companyName, String companyAddres) {
+    public User(String username, String email, String password, String firstname, String lastname, String logo, String companyName, String companyAddres, String category) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -36,6 +36,7 @@ public class User {
         this.logo = logo;
         this.companyName = companyName;
         this.companyAddres = companyAddres;
+        this.category = category;
     }
 
     public String getLogo() {
@@ -100,6 +101,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @Override
