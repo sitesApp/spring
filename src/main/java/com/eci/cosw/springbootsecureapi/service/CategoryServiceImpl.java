@@ -24,10 +24,10 @@ public class CategoryServiceImpl implements CategoryService {
     @PostConstruct
     private void populateSampleData()
     {
-        categorys.add(new Category("Restaurantes", "/assets/category/restaurantes.png"));
-        categorys.add(new Category("Bares", "/assets/category/bares.png"));
-        categorys.add(new Category("Cafeterias", "/assets/category/cafeterias.png"));
-        categorys.add(new Category("Paintball", "/assets/category/paintball.png"));
+        categorys.add(new Category("Restaurantes", "/assets/category/restaurantes.jpg"));
+        categorys.add(new Category("Bares", "/assets/category/bares.jpg"));
+        categorys.add(new Category("Cafeterias", "/assets/category/cafeterias.jpg"));
+        categorys.add(new Category("Paintball", "/assets/category/paintball.jpg"));
     }
 
     @Override
