@@ -30,6 +30,12 @@ public class UserController
     }
 
     @CrossOrigin
+    @RequestMapping( value = "/getsite/{siteName}", method = RequestMethod.GET )
+    public User getSite(@PathVariable String siteName) {
+        return userService.getSite(siteName);
+    }
+
+    @CrossOrigin
     @RequestMapping( value = "/byCategory/{category}", method = RequestMethod.GET )
     public List<User> getUsersByCategory(@PathVariable String category) {
         return userService.getUserByCategory(category);

@@ -38,7 +38,6 @@ public class UserServiceImpl
         users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/islamorada.png", "islamorada", "Carrera 10 # 20 - 5", "Restaurantes") );
         users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/cocheros.png", "Cocheros", "Calle 21", "Restaurantes") );
         users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/paintlogo.png", "Paint Ball", "Carrera 10", "Paintball") );
-
         users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/barprueba.png", "Bar prueba", "Carrera 20", "Bares") );
     }
 
@@ -75,6 +74,17 @@ public class UserServiceImpl
         return usersByCategory;
 
 
+    }
+
+    @Override
+    public User getSite(String siteName) {
+        int j = -1;
+        for(int i=0;i<users.size();i++) {
+            if(users.get(i).getCompanyName().equals(siteName)){
+                j = i;
+            }
+        }
+        return users.get(j);
     }
 
     @Override
