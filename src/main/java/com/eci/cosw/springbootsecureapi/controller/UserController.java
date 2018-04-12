@@ -1,5 +1,6 @@
 package com.eci.cosw.springbootsecureapi.controller;
 
+import com.eci.cosw.springbootsecureapi.model.Coupon;
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.service.UserService;
 import io.jsonwebtoken.Jwts;
@@ -33,6 +34,12 @@ public class UserController
     @RequestMapping( value = "/getsite/{siteName}", method = RequestMethod.GET )
     public User getSite(@PathVariable String siteName) {
         return userService.getSite(siteName);
+    }
+
+    @CrossOrigin
+    @RequestMapping( value = "/getCoupons/{siteUsername}", method = RequestMethod.GET )
+    public List<Coupon> getCouponsByUsername(@PathVariable String siteUsername) {
+        return userService.getCouponsByUsername(siteUsername);
     }
 
     @CrossOrigin
