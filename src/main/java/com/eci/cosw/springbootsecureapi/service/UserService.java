@@ -29,5 +29,7 @@ public interface UserService
 
     List<Coupon> getCouponsByUsername (String username);
 
+    List<Coupon> getCouponsMorePopular ();
+
     Coupon getCoupon(String siteUsername, String couponName);
 }

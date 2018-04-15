@@ -11,8 +11,10 @@ public class Coupon {
     String image;
     String description;
     String smallLetters;
+    int numberOfDownloads;
 
-    public Coupon(String name, Integer lastPrice, Integer newPrice, int discountRate, String image, String description, String smallLetters) {
+    public Coupon(String name, Integer lastPrice, Integer newPrice, int discountRate, String image, String description,
+                  String smallLetters, int numberOfDownloads) {
         this.name = name;
         this.lastPrice = lastPrice;
         this.newPrice = newPrice;
@@ -20,6 +22,7 @@ public class Coupon {
         this.image = image;
         this.description = description;
         this.smallLetters = smallLetters;
+        this.numberOfDownloads=numberOfDownloads;
     }
 
     public Coupon(){
@@ -80,5 +83,23 @@ public class Coupon {
 
     public void setSmallLetters(String smallLetters) {
         this.smallLetters = smallLetters;
+    }
+
+    public int getNumberOfDownloads() {
+        return numberOfDownloads;
+    }
+
+    public void setNumberOfDownloads(int numberOfDownloads) {
+        this.numberOfDownloads = numberOfDownloads;
+    }
+
+
+    public int compareTo(Coupon comparestu) {
+        int compareage=((Coupon)comparestu).getNumberOfDownloads();
+        /* For Ascending order*/
+        return this.getNumberOfDownloads()-compareage;
+
+        /* For Descending order do like this */
+        //return compareage-this.studentage;
     }
 }

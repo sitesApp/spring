@@ -45,7 +45,14 @@ public class UserController
     @CrossOrigin
     @RequestMapping( value = "/getCoupons/{siteUsername}", method = RequestMethod.GET )
     public List<Coupon> getCouponsByUsername(@PathVariable String siteUsername) {
+
         return userService.getCouponsByUsername(siteUsername);
+    }
+
+    @CrossOrigin
+    @RequestMapping( value = "/getCouponsMorePopular", method = RequestMethod.GET )
+    public List<Coupon> getCouponsMorePopular() {
+        return userService.getCouponsMorePopular();
     }
 
     @CrossOrigin
