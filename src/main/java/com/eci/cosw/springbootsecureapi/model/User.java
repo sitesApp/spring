@@ -21,13 +21,16 @@ public class User {
     private List<Coupon> coupons;
     private String linkFacebook;
     private String linkInstagram;
+    private String schedule;
+    private String linkTA;
+    private String linkGoogleMaps;
 
     public User() {
     }
 
     public User(String username, String email, String password, String firstname, String lastname, String logo,
                 String companyName, String companyAddres, String category, List<Coupon> coupons, int cel1, int cel2,
-                String linkFacebook, String linkInstagram) {
+                String linkFacebook, String linkInstagram, String schedule, String linkTA, String linkGoogleMaps) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -42,6 +45,9 @@ public class User {
         this.cel2 = cel2;
         this.linkFacebook=linkFacebook;
         this.linkInstagram=linkInstagram;
+        this.schedule=schedule;
+        this.linkTA=linkTA;
+        this.linkGoogleMaps=linkGoogleMaps;
     }
 
     public String getLogo() {
@@ -155,6 +161,30 @@ public class User {
 
     public void setLinkInstagram(String linkInstagram) {
         this.linkInstagram = linkInstagram;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
+    public String getLinkTA() {
+        return linkTA;
+    }
+
+    public void setLinkTA(String linkTA) {
+        this.linkTA = linkTA;
+    }
+
+    public String getLinkGoogleMaps() {
+        return linkGoogleMaps;
+    }
+
+    public void setLinkGoogleMaps(String linkGoogleMaps) {
+        this.linkGoogleMaps = linkGoogleMaps;
     }
 
     @Override

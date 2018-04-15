@@ -41,15 +41,19 @@ public class UserServiceImpl
         couponList.add(c1);
         couponList.add(c2);
 
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/islamorada.png", "islamorada", "Carrera 10 # 20 - 5", "Restaurantes", couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("avilla", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/cocheros.png", "Cocheros", "Calle 21", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/caw.png", "crepes and waffles", "Carrera 9", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/oma.png", "OMA", "Calle 21", "Cafeterias",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/juanv.png", "Juan Valdez", "Diagonal 10", "Cafeterias",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/islamorada.png", "islamorada", "Carrera 10 # 20 - 5", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/cocheros.png", "Cocheros", "Calle 21", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/paintlogo.png", "Paint Ball", "Carrera 10", "Paintball",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
-        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/barprueba.png", "Bar prueba", "Carrera 20", "Bares",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com") );
+        String linkTripA = "https://www.tripadvisor.co/Restaurant_Review-g1725990-d2297760-Reviews-Islamorada-Sopo_Cundinamarca_Department.html";
+        String linkGoogleMaps = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJa0YFT951QI4RGUEATe0KCjM&key=AIzaSyDN4V7-aX8Jm2tfKlxJb1vCF4jlCNrwS3U";
+
+
+
+                users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/islamorada.png", "islamorada", "Carrera 10 # 20 - 5", "Restaurantes", couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","Horario: tal\nlunes/nmartes",linkTripA,linkGoogleMaps) );
+        users.add( new User("avilla", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/cocheros.png", "Cocheros", "Calle 21", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
+        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/caw.png", "crepes and waffles", "Carrera 9", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
+        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/oma.png", "OMA", "Calle 21", "Cafeterias",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
+        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/juanv.png", "Juan Valdez", "Diagonal 10", "Cafeterias",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
+        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/cocheros.png", "Cocheros", "Calle 21", "Restaurantes",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
+        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/paintlogo.png", "Paint Ball", "Carrera 10", "Paintball",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
+        users.add( new User("prueba", "test@mail.com", "1234", "Andres", "Perez", "/assets/images/barprueba.png", "Bar prueba", "Carrera 20", "Bares",couponList, 2312, 12312, "http://www.facebook.com", "http://www.instragram.com","horario\ntal",linkTripA,linkGoogleMaps) );
     }
 
 
@@ -125,6 +129,27 @@ public class UserServiceImpl
             }
         }
         return users.get(j).getCoupons();
+    }
+
+    @Override
+    public Coupon getCoupon(String siteUsername, String couponName) {
+        int j = -1;
+        for(int i=0;i<users.size();i++) {
+            if(users.get(i).getUsername().equals(siteUsername)){
+                j = i;
+            }
+        }
+        User temp = users.get(j);
+        List<Coupon> couponList = temp.getCoupons();
+
+        int k = -1;
+        for(int l=0;l<couponList.size();l++) {
+            if(couponList.get(l).getName().equals(couponName)){
+                k = l;
+            }
+        }
+        Coupon res = couponList.get(k);
+        return res;
     }
 
 }
