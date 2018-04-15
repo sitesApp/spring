@@ -92,6 +92,21 @@ public class UserServiceImpl
     }
 
     @Override
+    public List<User> searchSite(String siteName) {
+        List<User> searchUsers = new ArrayList<>();
+
+        for(int i=0;i<users.size();i++) {
+            String a = users.get(i).getCompanyName();
+            a.toLowerCase();
+            siteName.toLowerCase();
+            if(a.contains(siteName)){
+                searchUsers.add(users.get(i));
+            }
+        }
+        return searchUsers;
+    }
+
+    @Override
     public User getSite(String siteName) {
         int j = -1;
         for(int i=0;i<users.size();i++) {
