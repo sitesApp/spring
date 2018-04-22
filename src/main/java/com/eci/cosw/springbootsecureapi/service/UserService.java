@@ -27,9 +27,5 @@ public interface UserService
 
     User findUserByEmailAndPassword( String email, String password );
 
-    List<Coupon> getCouponsByUsername (String username);
 
-    List<Coupon> getCouponsMorePopular ();
-
-    Coupon getCoupon(String siteUsername, String couponName);
 }

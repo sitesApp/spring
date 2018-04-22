@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+
 public class TownServiceImpl implements TownService {
 
     private List<Town> towns = new ArrayList<>();

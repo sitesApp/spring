@@ -42,24 +42,8 @@ public class UserController
         return userService.getSite(siteName);
     }
 
-    @CrossOrigin
-    @RequestMapping( value = "/getCoupons/{siteUsername}", method = RequestMethod.GET )
-    public List<Coupon> getCouponsByUsername(@PathVariable String siteUsername) {
 
-        return userService.getCouponsByUsername(siteUsername);
-    }
 
-    @CrossOrigin
-    @RequestMapping( value = "/getCouponsMorePopular", method = RequestMethod.GET )
-    public List<Coupon> getCouponsMorePopular() {
-        return userService.getCouponsMorePopular();
-    }
-
-    @CrossOrigin
-    @RequestMapping( value = "/getCoupon/{siteUsername}/{couponName}", method = RequestMethod.GET )
-    public Coupon getCoupon(@PathVariable String siteUsername, @PathVariable String couponName) {
-        return userService.getCoupon(siteUsername, couponName);
-    }
 
     @CrossOrigin
     @RequestMapping( value = "/byCategory/{category}", method = RequestMethod.GET )

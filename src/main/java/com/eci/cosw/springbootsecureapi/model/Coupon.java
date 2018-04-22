@@ -1,9 +1,15 @@
 package com.eci.cosw.springbootsecureapi.model;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+import static javax.persistence.CascadeType.ALL;
+
+@Entity
+@Table(name = "Coupons" )
 public class Coupon {
 
+    String code;
     String name;
     Integer lastPrice;
     Integer newPrice;
@@ -12,9 +18,15 @@ public class Coupon {
     String description;
     String smallLetters;
     int numberOfDownloads;
+    User site;
+
+    public Coupon(){
+
+    }
+
 
     public Coupon(String name, Integer lastPrice, Integer newPrice, int discountRate, String image, String description,
-                  String smallLetters, int numberOfDownloads) {
+                  String smallLetters, int numberOfDownloads, User site, String code) {
         this.name = name;
         this.lastPrice = lastPrice;
         this.newPrice = newPrice;
@@ -23,12 +35,31 @@ public class Coupon {
         this.description = description;
         this.smallLetters = smallLetters;
         this.numberOfDownloads=numberOfDownloads;
+        this.site=site;
+        this.code=code;
     }
 
-    public Coupon(){
-
+    @Id
+    @Column(name = "code", nullable = false)
+    public String getCode() {
+        return code;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @ManyToOne(cascade=ALL)
+    @JoinColumn(name="site_username", referencedColumnName="username", nullable=true)
+    public User getSite() {
+        return site;
+    }
+
+    public void setSite(User site) {
+        this.site = site;
+    }
+
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -37,6 +68,7 @@ public class Coupon {
         this.name = name;
     }
 
+    @Column(name = "lastPrice", nullable = false)
     public Integer getLastPrice() {
         return lastPrice;
     }
@@ -45,6 +77,7 @@ public class Coupon {
         this.lastPrice = lastPrice;
     }
 
+    @Column(name = "newPrice", nullable = false)
     public Integer getNewPrice() {
         return newPrice;
     }
@@ -53,6 +86,7 @@ public class Coupon {
         this.newPrice = newPrice;
     }
 
+    @Column(name = "discountRate", nullable = false)
     public int getDiscountRate() {
         return discountRate;
     }
@@ -61,6 +95,7 @@ public class Coupon {
         this.discountRate = discountRate;
     }
 
+    @Column(name = "image", nullable = false)
     public String getImage() {
         return image;
     }
@@ -69,6 +104,7 @@ public class Coupon {
         this.image = image;
     }
 
+    @Column(name = "description", nullable = false)
     public String getDescription() {
         return description;
     }
@@ -77,6 +113,7 @@ public class Coupon {
         this.description = description;
     }
 
+    @Column(name = "smallLetters", nullable = false)
     public String getSmallLetters() {
         return smallLetters;
     }
@@ -85,6 +122,7 @@ public class Coupon {
         this.smallLetters = smallLetters;
     }
 
+    @Column(name = "numberOfDownloads", nullable = false)
     public int getNumberOfDownloads() {
         return numberOfDownloads;
     }

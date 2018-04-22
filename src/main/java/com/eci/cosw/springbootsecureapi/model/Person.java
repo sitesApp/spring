@@ -1,7 +1,13 @@
 package com.eci.cosw.springbootsecureapi.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigInteger;
 
+@Entity
+@Table(name = "Person" )
 public class Person {
 
     String name;
@@ -22,6 +28,7 @@ public class Person {
 
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -30,6 +37,8 @@ public class Person {
         this.name = name;
     }
 
+    @Id
+    @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;
     }
@@ -38,6 +47,7 @@ public class Person {
         this.username = username;
     }
 
+    @Column(name = "email", nullable = false)
     public String getEmail() {
         return email;
     }
@@ -46,6 +56,7 @@ public class Person {
         this.email = email;
     }
 
+    @Column(name = "celphone", nullable = false)
     public String getCelphone() {
         return celphone;
     }
@@ -54,6 +65,7 @@ public class Person {
         this.celphone = celphone;
     }
 
+    @Column(name = "password", nullable = false)
     public String getPassword() {
         return password;
     }

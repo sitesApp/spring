@@ -1,9 +1,14 @@
 package com.eci.cosw.springbootsecureapi.model;
 
+import javax.persistence.*;
 import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
 
 /**
  */
+@Entity
+@Table(name = "Site" )
 public class User {
 
 
@@ -17,23 +22,22 @@ public class User {
     private String logo;
     private String companyName;
     private String companyAddres;
-    private String category;
-    private List<Coupon> coupons;
+    private Category category;
     private String linkFacebook;
     private String linkInstagram;
     private String schedule;
     private String linkTA;
     private String linkGoogleMaps;
-    private List<String>  keyWords;
+    private List<KeyWords> keyWords;
     private Town town;
 
     public User() {
     }
 
     public User(String username, String email, String password, String firstname, String lastname, String logo,
-                String companyName, String companyAddres, String category, List<Coupon> coupons, int cel1, int cel2,
+                String companyName, String companyAddres, Category category, int cel1, int cel2,
                 String linkFacebook, String linkInstagram, String schedule, String linkTA, String linkGoogleMaps,
-                List<String> keyWords, Town town) {
+                List<KeyWords> keyWords, Town town) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -43,7 +47,6 @@ public class User {
         this.companyName = companyName;
         this.companyAddres = companyAddres;
         this.category = category;
-        this.coupons = coupons;
         this.cel1 = cel1;
         this.cel2 = cel2;
         this.linkFacebook=linkFacebook;
@@ -55,6 +58,8 @@ public class User {
         this.town = town;
     }
 
+    @ManyToOne(cascade=ALL)
+    @JoinColumn(name="town_name", referencedColumnName="name", nullable=true)
     public Town getTown() {
         return town;
     }
@@ -63,22 +68,32 @@ public class User {
         this.town = town;
     }
 
-    public List<String> getKeyWords() {
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Site_KeyWords",
+            joinColumns =
+            @JoinColumn(name="site_name", referencedColumnName="username"),
+            inverseJoinColumns =
+            @JoinColumn(name="keyWord_name", referencedColumnName="keyWord")
+    )
+    public List<KeyWords> getKeyWords() {
         return keyWords;
     }
 
-    public void setKeyWords(List<String> keyWords) {
+    public void setKeyWords(List<KeyWords> keyWords) {
         this.keyWords = keyWords;
     }
 
+    @Column(name = "logo", nullable = false)
     public String getLogo() {
         return logo;
     }
+
 
     public void setLogo(String logo) {
         this.logo = logo;
     }
 
+    @Column(name = "companyName", nullable = false)
     public String getCompanyName() {
         return companyName;
     }
@@ -87,6 +102,7 @@ public class User {
         this.companyName = companyName;
     }
 
+    @Column(name = "companyAddres", nullable = false)
     public String getCompanyAddres() {
         return companyAddres;
     }
@@ -95,6 +111,7 @@ public class User {
         this.companyAddres = companyAddres;
     }
 
+    @Column(name = "email", nullable = false)
     public String getEmail() {
         return email;
     }
@@ -103,6 +120,7 @@ public class User {
         this.email = email;
     }
 
+    @Column(name = "password", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -111,6 +129,7 @@ public class User {
         this.password = password;
     }
 
+    @Column(name = "firstName", nullable = false)
     public String getFirstname() {
         return firstname;
     }
@@ -119,6 +138,7 @@ public class User {
         this.firstname = firstname;
     }
 
+    @Column(name = "lastName", nullable = false)
     public String getLastname() {
         return lastname;
     }
@@ -127,6 +147,8 @@ public class User {
         this.lastname = lastname;
     }
 
+    @Id
+    @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;
     }
@@ -135,23 +157,17 @@ public class User {
         this.username = username;
     }
 
-    public String getCategory() {
+    @ManyToOne(cascade=ALL)
+    @JoinColumn(name="category_name", referencedColumnName="name", nullable=true)
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public List<Coupon> getCoupons() {
-        return coupons;
-    }
-
-    public void setCoupons(List<Coupon> coupons) {
-        this.coupons = coupons;
-    }
-
-
+    @Column(name = "cel1", nullable = false)
     public int getCel1() {
         return cel1;
     }
@@ -160,6 +176,7 @@ public class User {
         this.cel1 = cel1;
     }
 
+    @Column(name = "cel2", nullable = false)
     public int getCel2() {
         return cel2;
     }
@@ -168,6 +185,7 @@ public class User {
         this.cel2 = cel2;
     }
 
+    @Column(name = "linkFacebook", nullable = false)
     public String getLinkFacebook() {
         return linkFacebook;
     }
@@ -176,6 +194,7 @@ public class User {
         this.linkFacebook = linkFacebook;
     }
 
+    @Column(name = "linkInstagram", nullable = false)
     public String getLinkInstagram() {
         return linkInstagram;
     }
@@ -184,6 +203,7 @@ public class User {
         this.linkInstagram = linkInstagram;
     }
 
+    @Column(name = "getSchedule", nullable = false)
     public String getSchedule() {
         return schedule;
     }
@@ -192,6 +212,7 @@ public class User {
         this.schedule = schedule;
     }
 
+    @Column(name = "linkTA", nullable = false)
     public String getLinkTA() {
         return linkTA;
     }
@@ -200,6 +221,7 @@ public class User {
         this.linkTA = linkTA;
     }
 
+    @Column(name = "linkGoogleMaps", nullable = false)
     public String getLinkGoogleMaps() {
         return linkGoogleMaps;
     }
