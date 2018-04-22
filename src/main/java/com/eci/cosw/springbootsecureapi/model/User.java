@@ -30,6 +30,8 @@ public class User {
     private String linkGoogleMaps;
     private List<KeyWords> keyWords;
     private Town town;
+    private Boolean tieneDomicilios;
+    private Boolean tieneDatafono;
 
     public User() {
     }
@@ -37,7 +39,7 @@ public class User {
     public User(String username, String email, String password, String firstname, String lastname, String logo,
                 String companyName, String companyAddres, Category category, int cel1, int cel2,
                 String linkFacebook, String linkInstagram, String schedule, String linkTA, String linkGoogleMaps,
-                List<KeyWords> keyWords, Town town) {
+                List<KeyWords> keyWords, Town town, Boolean tieneDatafono, Boolean tieneDomicilios) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -56,6 +58,27 @@ public class User {
         this.linkGoogleMaps=linkGoogleMaps;
         this.keyWords=keyWords;
         this.town = town;
+        this.tieneDatafono=tieneDatafono;
+        this.tieneDomicilios=tieneDomicilios;
+    }
+
+
+    @Column(name = "tieneDomicilio", nullable = false)
+    public Boolean getTieneDomicilios() {
+        return tieneDomicilios;
+    }
+
+    public void setTieneDomicilios(Boolean tieneDomicilios) {
+        this.tieneDomicilios = tieneDomicilios;
+    }
+
+    @Column(name = "tieneDatafono", nullable = false)
+    public Boolean getTieneDatafono() {
+        return tieneDatafono;
+    }
+
+    public void setTieneDatafono(Boolean tieneDatafono) {
+        this.tieneDatafono = tieneDatafono;
     }
 
     @ManyToOne(cascade=ALL)
