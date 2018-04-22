@@ -24,13 +24,16 @@ public class User {
     private String schedule;
     private String linkTA;
     private String linkGoogleMaps;
+    private List<String>  keyWords;
+    private Town town;
 
     public User() {
     }
 
     public User(String username, String email, String password, String firstname, String lastname, String logo,
                 String companyName, String companyAddres, String category, List<Coupon> coupons, int cel1, int cel2,
-                String linkFacebook, String linkInstagram, String schedule, String linkTA, String linkGoogleMaps) {
+                String linkFacebook, String linkInstagram, String schedule, String linkTA, String linkGoogleMaps,
+                List<String> keyWords, Town town) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -48,6 +51,24 @@ public class User {
         this.schedule=schedule;
         this.linkTA=linkTA;
         this.linkGoogleMaps=linkGoogleMaps;
+        this.keyWords=keyWords;
+        this.town = town;
+    }
+
+    public Town getTown() {
+        return town;
+    }
+
+    public void setTown(Town town) {
+        this.town = town;
+    }
+
+    public List<String> getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(List<String> keyWords) {
+        this.keyWords = keyWords;
     }
 
     public String getLogo() {

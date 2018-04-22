@@ -17,7 +17,7 @@ public interface UserService
 
     List<User> getUserByCategory (String category);
 
-    List<User> searchSite (String siteName);
+    List<User> searchSite (String siteName, String townName);
 
     User getSite(String siteName);
 
